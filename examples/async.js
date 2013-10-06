@@ -22,16 +22,8 @@ var schema = {
     { validator: 'timeout1' },
     { sanitizer: Valida.Sanitizer.toInt },
     { validator: Valida.Validator.required },
-    { validator: 'timeout1' },
-    // { validator: Valida.Validator.IsNumber, groups: ['create'] },
-    // { validator: Valida.Validator.Min, value: 1, groups: ['create', 'update'] },
-    // { validator: Valida.Validator.Required }
-  ],
-  // blah: [
-  //   { validator: 'timeout1' },
-  //   { validator: 'timeout2' },
-  //   { validator: 'timeout2' },
-  // ]
+    { validator: 'timeout1' }
+  ]
 };
 
 var obj = {

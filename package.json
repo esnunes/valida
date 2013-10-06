@@ -1,7 +1,7 @@
 {
   "name": "valida",
-  "description": "Valida - Sanitization and Validation JavaScript Library.",
-  "version": "0.0.1",
+  "description": "Valida - Lightweight sanitizer and validator library for Node.js",
+  "version": "0.0.2",
   "author": {
     "name": "Eduardo Nunes",
     "email": "esnunes@gmail.com"
@@ -22,7 +22,8 @@
     "sanitization",
     "sanitisation",
     "sanitizer",
-    "sanitiser"
+    "sanitiser",
+    "lightweight"
   ],
   "repository": {
     "type": "git",

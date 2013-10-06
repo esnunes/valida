@@ -1,4 +1,4 @@
 
 # Valida
 
-Valida - Node.js Sanitization and Validation JavaScript Library.
+Valida - Lightweight sanitizer and validator library for Node.js.
