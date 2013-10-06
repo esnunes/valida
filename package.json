@@ -1,0 +1,44 @@
+{
+  "name": "valida",
+  "description": "Valida - Sanitization and Validation JavaScript Library.",
+  "version": "0.0.1",
+  "author": {
+    "name": "Eduardo Nunes",
+    "email": "esnunes@gmail.com"
+  },
+  "contributors": [
+    {
+      "name": "Eduardo Nunes",
+      "email": "esnunes@gmail.com"
+    }
+  ],
+  "dependencies": {
+    "async": "*"
+  },
+  "keywords": [
+    "validation",
+    "validator",
+    "validate",
+    "sanitization",
+    "sanitisation",
+    "sanitizer",
+    "sanitiser"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "http://github.com/esnunes/valida.git"
+  },
+  "main": "lib/index",
+  "engines": {
+    "node": ">= 0.10.7"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "http://github.com/esnunes/valida/raw/master/LICENSE"
+    }
+  ],
+  "bugs": {
+    "url": "https://github.com/esnunes/valida/issues"
+  }
+}

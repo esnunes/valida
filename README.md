@@ -1,2 +1,4 @@
 
-# Valida - Sanitization and Validation JavaScript Library
+# Valida
+
+Valida - Sanitization and Validation JavaScript Library.
