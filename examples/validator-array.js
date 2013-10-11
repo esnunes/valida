@@ -17,7 +17,7 @@ Valida.process(data, schema, function(err, ctx) {
   console.log('valid');
 });
 
-data.codes = 'ola';
+data.codes = 'hello';
 Valida.process(data, schema, function(err, ctx) {
   if (err) return console.log(err);
   if (!ctx.isValid()) return console.log('invalid', ctx.errors());
