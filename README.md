@@ -6,6 +6,7 @@ This document describes how Valida library works and which features it offers. E
 
 ## Simple example
 ```javascript
+// soon
 ```
 
 ## Features

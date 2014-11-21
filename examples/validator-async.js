@@ -1,34 +1,36 @@
-
-'use strict';
-
 var Valida = require('..');
+
 
 Valida.setValidator('timeout1', function(ctx, options, value, cb) {
   setTimeout(function() {
-    console.log('timeout1');
+    console.log('timeout1', new Date());
     cb();
-  }, 1000);
+  }, 2000);
 });
+
 
 Valida.setValidator('timeout2', function(ctx, options, value, cb) {
   setTimeout(function() {
-    console.log('timeout2');
+    console.log('timeout2', new Date());
     cb(null, { key: 'timeout2', someAddInfo: 'hello world' });
-  }, 500);
+  }, 5000);
 });
+
 
 var schema = {
   id: [
     { validator: 'timeout1' },
     { sanitizer: Valida.Sanitizer.toInt },
     { validator: Valida.Validator.required },
-    { validator: 'timeout1' }
+    { validator: 'timeout2' }
   ]
 };
+
 
 var obj = {
   id: '10'
 };
+
 
 Valida.process(obj, schema, function(err, ctx) {
   if (err) return console.log(err);

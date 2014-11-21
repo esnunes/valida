@@ -13,7 +13,8 @@
     }
   ],
   "dependencies": {
-    "async": "*"
+    "async": "^0.9.0",
+    "rsvp": "^3.0.14"
   },
   "keywords": [
     "validation",
@@ -41,8 +42,5 @@
   ],
   "bugs": {
     "url": "https://github.com/esnunes/valida/issues"
-  },
-  "devDependencies": {
-    "should": "~2.0.2"
   }
 }

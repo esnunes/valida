@@ -1,7 +1,5 @@
-
-'use strict';
-
 var Valida = require('..');
+
 
 var schema = {
   age: [
@@ -13,9 +11,11 @@ var schema = {
   ]
 };
 
+
 var person = {
   age: '10'
 };
+
 
 Valida.process(person, schema, function(err, ctx) {
   if (err) return console.log(err);
@@ -23,17 +23,20 @@ Valida.process(person, schema, function(err, ctx) {
   console.log('valid', person);
 }, ['create', 'update']);
 
+
 Valida.process(person, schema, function(err, ctx) {
   if (err) return console.log(err);
   if (!ctx.isValid()) return console.log(ctx.errors());
   console.log('valid', person);
 }, 'update');
 
+
 Valida.process(person, schema, function(err, ctx) {
   if (err) return console.log(err);
   if (!ctx.isValid()) return console.log(ctx.errors());
   console.log('valid', person);
 }, 'create');
+
 
 Valida.process(person, schema, function(err, ctx) {
   if (err) return console.log(err);

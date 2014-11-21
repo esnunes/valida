@@ -1,7 +1,5 @@
-
-'use strict';
-
 var Valida = require('..');
+
 
 var schema = {
   name: [
@@ -10,14 +8,20 @@ var schema = {
   ]
 };
 
+
 var person = { name: '   Eduardo Nunes   ' };
 
+
 Valida.process(person, schema, function(err, ctx) {
+  // jshint unused:false
   console.log('simple', person);
 }, 'simple');
 
+
 person.name = '[Eduardo Nunes]';
 
+
 Valida.process(person, schema, function(err, ctx) {
+  // jshint unused:false
   console.log('chars', person);
 }, 'chars');
