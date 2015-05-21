@@ -52,8 +52,8 @@ Valida.process(
 ```
 **options:**
 
-* `@data` is the object to be applied the Valida schema
-* `@schema` is an object describing to Valida how process it
+* `@data` is the object to be applied the sanitization and validation
+* `@schema` is an object describing to Valida how to process it
 * `@callback` is a function that is going to be called after processing the data
 * `@group` is a string or array describing which groups must be applied in this process (optional)
 
