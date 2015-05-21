@@ -153,7 +153,7 @@ Validation based in a regex.
 
 ```js
 var schema = {
-  description: [{ validator: Valida.Validator.regex, pattern: '[A-Z]', modifiers: 'i' }]
+  name: [{ validator: Valida.Validator.regex, pattern: '[A-Z]', modifiers: 'i' }]
 };
 ```
 
