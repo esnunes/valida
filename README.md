@@ -6,6 +6,32 @@ This document describes how Valida library works and which features it offers. E
 
 ## Simple example
 ```javascript
+var schema = {
+  id: [
+    { sanitizer: Valida.Sanitizer.toInt },
+    { validator: Valida.Validator.required }
+  ],
+  age: [
+    { sanitizer: Valida.Sanitizer.toInt },
+    { validator: Valida.Validator.required, groups: ['create'] }
+  ],
+  name: [
+    { validator: Valida.Validator.required, groups: ['update'] }
+  ],
+  answers: [
+    { validator: Valida.Validator.array },
+    { validator: Valida.Validator.len, min: 3, max: 10 },
+  ]
+};
+
+var person = { age: '10', answers: ['A', 'D'] };
+
+Valida.process(person, schema, function(err, ctx) {
+  if (err) return console.log(err);
+  if (!ctx.isValid()) return console.log(ctx.errors());
+  console.log('valid', person);
+}, ['create']);
+
 ```
 
 ## Features
@@ -17,10 +43,131 @@ This document describes how Valida library works and which features it offers. E
 ### Sanitization
 Valida supports synchronous sanitization.
 
+#### toInt
+
+**options:**
+
+* `radix` (optional, default 10)
+
+```js
+var schema = {
+  age: [{ sanitizer: Valida.Sanitizer.toInt }]
+};
+```
+
+#### toFloat
+
+**options:**
+
+* `precision` (optional)
+
+```js
+var schema = {
+  salary: [{ sanitizer: Valida.Sanitizer.toFloat }]
+};
+```
+
+#### toDate
+
+```js
+var schema = {
+  birthday: [{ sanitizer: Valida.Sanitizer.toDate }]
+};
+```
+
+#### trim
+
+**options:**
+
+* `chars` (optional)
+
+```js
+
+var schema = {
+  name: [{ sanitizer: Valida.Sanitizer.trim }]
+};
+```
+
+### Validators
+
+#### required
+
+Field is required.
+
+```js
+var schema = {
+  age: [{ validator: Valida.Validator.required }]
+};
+```
+
+#### empty
+
+Field must be empty.
+
+```js
+var schema = {
+  description: [{ validator: Valida.Validator.empty }]
+};
+```
+
+#### regex
+
+Validation based in a regex.
+
+**options:**
+
+* `pattern`: regex pattern
+* `modifiers`: regex modifier (optional)
+
+```js
+var schema = {
+  description: [{ validator: Valida.Validator.regex, pattern: '[A-Z]', modifiers: 'i' }]
+};
+```
+
+#### len
+
+Validation based in the size of an array.
+
+**options:**
+
+* `min`
+* `max`
+
+```js
+var schema = {
+  products: [{ validator: Valida.Validator.len, min: 2, max: 10 }]
+};
+```
+
+#### array
+
+Field must be an array.
+
+```js
+var schema = {
+  products: [{ validator: Valida.Validator.array }]
+};
+```
+
+### Groups
+
+Allows reuse the same schema validation for multiple actions. For example on creating an item a specific field is required. But on updating it that field is optional.
+
+```js
+var schema = {
+  id: [{ validator: Valida.Validator.required, groups: ['update'] }]
+  products: [{ validator: Valida.Validator.array, groups: ['create'] }]
+};
+
+Valida.process(data, schema, function(err, ctx) {
+  console.log('create', create);
+}, 'create');
+```
+
 ### Validation
 Valida supports both synchronous and asynchronous validation.
 
-### Groups
 
 ### Extensible
 
