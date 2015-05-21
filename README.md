@@ -59,7 +59,13 @@ Valida.process(
 
 
 ### Sanitization
+
 Valida supports synchronous sanitization.
+
+* `toInt`
+* `toFloat`
+* `toDate`
+* `trim`
 
 #### toInt
 
@@ -106,7 +112,15 @@ var schema = {
 };
 ```
 
-### Validators
+### Validation
+
+Valida supports both synchronous and asynchronous validation.
+
+* `required`
+* `empty`
+* `regex`
+* `len`
+* `array`
 
 #### required
 
@@ -182,10 +196,6 @@ Valida.process(data, schema, function(err, ctx) {
   console.log('create', create);
 }, 'create');
 ```
-
-### Validation
-Valida supports both synchronous and asynchronous validation.
-
 
 ### Extensible
 
