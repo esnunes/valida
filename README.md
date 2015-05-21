@@ -40,6 +40,24 @@ Valida.process(person, schema, function(err, ctx) {
 - Groups
 - Extensible
 
+All the features are applied through the `process` function.
+
+```js
+Valida.process(
+  @data,
+  @schema,
+  @callback,
+  @group
+);
+```
+**options:**
+
+* `@data` is the object to be applied the Valida schema
+* `@schema` is an object describing to Valida how process it
+* `@callback` is a function that is going to be called after processing the data
+* `@group` is a string or array describing which groups must be applied in this process (optional)
+
+
 ### Sanitization
 Valida supports synchronous sanitization.
 
