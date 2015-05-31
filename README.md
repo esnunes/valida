@@ -120,6 +120,7 @@ Valida supports both synchronous and asynchronous validation.
 * `regex`
 * `len`
 * `array`
+* `plainObject`
 
 #### required
 
@@ -178,6 +179,16 @@ Field must be an array.
 ```js
 var schema = {
   products: [{ validator: Valida.Validator.array }]
+};
+```
+
+#### plainObject
+
+Field must be a plain object.
+
+```js
+var schema = {
+  person: [{ validator: Valida.Validator.plainObject }]
 };
 ```
 
