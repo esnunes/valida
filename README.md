@@ -121,6 +121,7 @@ Valida supports both synchronous and asynchronous validation.
 * `len`
 * `array`
 * `plainObject`
+* `date`
 
 #### required
 
@@ -189,6 +190,16 @@ Field must be a plain object.
 ```js
 var schema = {
   person: [{ validator: Valida.Validator.plainObject }]
+};
+```
+
+#### array
+
+Field must be a date.
+
+```js
+var schema = {
+  createdAt: [{ validator: Valida.Validator.date }]
 };
 ```
 
