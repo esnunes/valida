@@ -193,7 +193,7 @@ var schema = {
 };
 ```
 
-#### array
+#### date
 
 Field must be a date.
 
