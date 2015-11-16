@@ -203,6 +203,16 @@ var schema = {
 };
 ```
 
+#### integer
+
+Field must be a integer.
+
+```js
+var schema = {
+  createdAt: [{ validator: Valida.Validator.integer }]
+};
+```
+
 ### Groups
 
 Allows reuse the same schema validation for multiple actions. For example on creating an item a specific field is required. But on updating it that field is optional.
