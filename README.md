@@ -122,6 +122,7 @@ Valida supports both synchronous and asynchronous validation.
 * `array`
 * `plainObject`
 * `date`
+* `integer`
 
 #### required
 
