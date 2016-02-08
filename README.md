@@ -136,7 +136,7 @@ var schema = {
 
 #### empty
 
-Field must be empty.
+Field must be **not** empty.
 
 ```js
 var schema = {
