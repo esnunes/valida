@@ -65,6 +65,12 @@ Valida supports synchronous sanitization.
 * `toFloat`
 * `toDate`
 * `trim`
+* `string`
+* `lowerCase`
+* `titleCase`
+* `upperCaseFirst`
+* `upperCase`
+* `toBool`
 
 #### toInt
 
@@ -111,6 +117,60 @@ var schema = {
 };
 ```
 
+#### string
+
+```js
+
+var schema = {
+  name: [{ sanitizer: Valida.Sanitizer.string }]
+};
+```
+
+#### lowerCase
+
+```js
+
+var schema = {
+  name: [{ sanitizer: Valida.Sanitizer.lowerCase }]
+};
+```
+
+#### titleCase
+
+```js
+
+var schema = {
+  name: [{ sanitizer: Valida.Sanitizer.titleCase }]
+};
+```
+
+#### upperCaseFirst
+
+```js
+
+var schema = {
+  name: [{ sanitizer: Valida.Sanitizer.upperCaseFirst }]
+};
+```
+
+#### upperCase
+
+```js
+
+var schema = {
+  name: [{ sanitizer: Valida.Sanitizer.upperCase }]
+};
+```
+
+#### toBool
+
+```js
+
+var schema = {
+  published: [{ sanitizer: Valida.Sanitizer.toBool }]
+};
+```
+
 ### Validation
 
 Valida supports both synchronous and asynchronous validation.
@@ -123,6 +183,9 @@ Valida supports both synchronous and asynchronous validation.
 * `plainObject`
 * `date`
 * `integer`
+* `enum`
+* `bool`
+* `float`
 
 #### required
 
@@ -225,6 +288,44 @@ Field value must be list of valid values.
 ```js
 var schema = {
   color: [{ validator: Valida.Validator.enum, items: ['blue', 'black', 'white'] }]
+};
+```
+
+#### enum
+
+Field must be a value of the enum list.
+
+**options:**
+
+* `values`
+
+```js
+var schema = {
+  fruit: [{ validator: Valida.Validator.enum, values: ['apple', 'orange'] }]
+};
+```
+
+#### bool
+
+Field must be a bool.
+
+**options:**
+
+* `default`
+
+```js
+var schema = {
+  published: [{ validator: Valida.Validator.bool, default: false }]
+};
+```
+
+#### float
+
+Field must be a float.
+
+```js
+var schema = {
+  salary: [{ validator: Valida.Validator.float }]
 };
 ```
 
