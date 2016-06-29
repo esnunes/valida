@@ -214,17 +214,17 @@ var schema = {
 };
 ```
 
-#### values
+#### enum
 
 Field value must be list of valid values.
 
 **options:**
 
-* `validValues`: an array with the valid values
+* `items`: an array with the valid values
 
 ```js
 var schema = {
-  color: [{ validator: Valida.Validator.values, validValues: ['blue', 'black', 'white'] }]
+  color: [{ validator: Valida.Validator.enum, items: ['blue', 'black', 'white'] }]
 };
 ```
 

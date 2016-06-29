@@ -3,7 +3,7 @@ var Valida = require('..');
 
 var schema = {
   color: [
-    { validator: Valida.Validator.values, validValues: ['blue', 'black', 'white'] },
+    { validator: Valida.Validator.enum, items: ['blue', 'black', 'white'] },
   ]
 };
 
