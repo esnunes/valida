@@ -6,6 +6,9 @@
     "name": "Eduardo Nunes",
     "email": "esnunes@gmail.com"
   },
+  "scripts": {
+    "test": "NODE_ENV=test mocha --report spec --recursive --watch-extensions .spec.js ./spec"
+  },
   "contributors": [
     {
       "name": "Eduardo Nunes",
@@ -45,5 +48,9 @@
   ],
   "bugs": {
     "url": "https://github.com/esnunes/valida/issues"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "mocha": "^2.5.3"
   }
 }
