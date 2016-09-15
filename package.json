@@ -1,7 +1,7 @@
 {
   "name": "valida",
   "description": "Valida - A lightweight sanitizer and validator library for Node.js",
-  "version": "2.3.0",
+  "version": "2.3.1",
   "author": {
     "name": "Eduardo Nunes",
     "email": "esnunes@gmail.com"
