@@ -65,6 +65,8 @@ Valida supports synchronous sanitization.
 * `toFloat`
 * `toDate`
 * `trim`
+* `upperCase`
+* `lowerCase`
 
 #### toInt
 
@@ -108,6 +110,22 @@ var schema = {
 
 var schema = {
   name: [{ sanitizer: Valida.Sanitizer.trim }]
+};
+```
+
+#### upperCase
+
+```js
+var schema = {
+  code: [{ sanitizer: Valida.Sanitizer.upperCase }]
+};
+```
+
+#### lowerCase
+
+```js
+var schema = {
+  code: [{ sanitizer: Valida.Sanitizer.lowerCase }]
 };
 ```
 
