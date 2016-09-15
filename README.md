@@ -291,20 +291,6 @@ var schema = {
 };
 ```
 
-#### enum
-
-Field must be a value of the enum list.
-
-**options:**
-
-* `values`
-
-```js
-var schema = {
-  fruit: [{ validator: Valida.Validator.enum, values: ['apple', 'orange'] }]
-};
-```
-
 #### bool
 
 Field must be a bool.
