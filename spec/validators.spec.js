@@ -271,7 +271,7 @@ describe('validators', function () {
   describe('enum', function () {
     var schema = {
       fruit: [
-        { validator: Valida.Validator.enum, values: ['apple', 'orange'] }
+        { validator: Valida.Validator.enum, items: ['apple', 'orange'] }
       ],
     };
 
