@@ -105,7 +105,7 @@ describe('validators', function () {
       ]
     };
 
-    describe('given the field matches the expected length', function () {
+    describe('given an array that matches the expected length', function () {
       it('should consider valid', function (done) {
         var data = { fruits: ['apple', 'orange'] };
 
@@ -117,7 +117,7 @@ describe('validators', function () {
       });
     });
 
-    describe('given the field does not match the expected length', function () {
+    describe('given and array that does not match the expected length', function () {
       it('should consider invalid when min is not right', function (done) {
         var data = { fruits: ['apple'] };
 
@@ -130,6 +130,40 @@ describe('validators', function () {
 
       it('should consider invalid when max is not right', function (done) {
         var data = { fruits: ['apple', 'orange', 'banana', 'watermelon'] };
+
+        Valida.process(data, schema, function(err, ctx) {
+          if (err) return done(err);
+          expect(ctx.isValid()).to.eql(false);
+          done();
+        });
+      });
+    });
+
+    describe('given a string that matches the expected length', function () {
+      it('should consider valid', function (done) {
+        var data = { fruits: 'fig' };
+
+        Valida.process(data, schema, function(err, ctx) {
+          if (err) return done(err);
+          expect(ctx.isValid()).to.eql(true);
+          done();
+        });
+      });
+    });
+
+    describe('given and array that does not match the expected length', function () {
+      it('should consider invalid when min is not right', function (done) {
+        var data = { fruits: 'x' };
+
+        Valida.process(data, schema, function(err, ctx) {
+          if (err) return done(err);
+          expect(ctx.isValid()).to.eql(false);
+          done();
+        });
+      });
+
+      it('should consider invalid when max is not right', function (done) {
+        var data = { fruits: 'coconut' };
 
         Valida.process(data, schema, function(err, ctx) {
           if (err) return done(err);
