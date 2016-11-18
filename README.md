@@ -227,7 +227,7 @@ var schema = {
 
 #### len
 
-Validation based in the size of an array.
+Validation based in the size of an array or in the number of chars of a non-array.
 
 **options:**
 
