@@ -409,4 +409,162 @@ describe('validators', function () {
       });
     });
   });
+
+  describe('range', function () {
+    describe('given a schema with both min and max values', () => {
+      var schema = {
+        code: [
+          { validator: Valida.Validator.range, min: 0, max: 10 }
+        ],
+      };
+
+      describe('given a value smaller than the min value', () => {
+        it ('should consider invalid', (done) => {
+          var data = { code: -10 };
+
+          Valida.process(data, schema, function(err, ctx) {
+            if (err) return done(err);
+            expect(ctx.isValid()).to.eql(false);
+            done();
+          });
+        });
+      });
+
+      describe('given a value bigger than the max value', () => {
+        it ('should consider invalid', (done) => {
+          var data = { code: 20 };
+
+          Valida.process(data, schema, function(err, ctx) {
+            if (err) return done(err);
+            expect(ctx.isValid()).to.eql(false);
+            done();
+          });
+        });
+      });
+
+      describe('given a value between the min and max value', () => {
+        it ('should consider valid', (done) => {
+          var data = { code: 5 };
+
+          Valida.process(data, schema, function(err, ctx) {
+            if (err) return done(err);
+            expect(ctx.isValid()).to.eql(true);
+            done();
+          });
+        });
+      });
+
+      describe('given a value equal to the min value', () => {
+        it ('should consider valid', (done) => {
+          var data = { code: 0 };
+
+          Valida.process(data, schema, function(err, ctx) {
+            if (err) return done(err);
+            expect(ctx.isValid()).to.eql(true);
+            done();
+          });
+        });
+      });
+
+      describe('given a value equal to the max value', () => {
+        it ('should consider valid', (done) => {
+          var data = { code: 10 };
+
+          Valida.process(data, schema, function(err, ctx) {
+            if (err) return done(err);
+            expect(ctx.isValid()).to.eql(true);
+            done();
+          });
+        });
+      });
+    });
+
+    describe('given a schema with only min value', () => {
+      var schema = {
+        code: [
+          { validator: Valida.Validator.range, min: 0 }
+        ],
+      };
+
+      describe('given a value smaller than the min value', () => {
+        it ('should consider invalid', (done) => {
+          var data = { code: -10 };
+
+          Valida.process(data, schema, function(err, ctx) {
+            if (err) return done(err);
+            expect(ctx.isValid()).to.eql(false);
+            done();
+          });
+        });
+      });
+
+      describe('given a value bigger than the min value', () => {
+        it ('should consider valid', (done) => {
+          var data = { code: 5 };
+
+          Valida.process(data, schema, function(err, ctx) {
+            if (err) return done(err);
+            expect(ctx.isValid()).to.eql(true);
+            done();
+          });
+        });
+      });
+
+      describe('given a value equal to the min value', () => {
+        it ('should consider valid', (done) => {
+          var data = { code: 0 };
+
+          Valida.process(data, schema, function(err, ctx) {
+            if (err) return done(err);
+            expect(ctx.isValid()).to.eql(true);
+            done();
+          });
+        });
+      });
+    });
+
+    describe('given a schema with only max value', () => {
+      var schema = {
+        code: [
+          { validator: Valida.Validator.range, max: 10 }
+        ],
+      };
+
+      describe('given a value bigger than the max value', () => {
+        it ('should consider invalid', (done) => {
+          var data = { code: 20 };
+
+          Valida.process(data, schema, function(err, ctx) {
+            if (err) return done(err);
+            expect(ctx.isValid()).to.eql(false);
+            done();
+          });
+        });
+      });
+
+      describe('given a value smaller than the max value', () => {
+        it ('should consider valid', (done) => {
+          var data = { code: 5 };
+
+          Valida.process(data, schema, function(err, ctx) {
+            if (err) return done(err);
+            expect(ctx.isValid()).to.eql(true);
+            done();
+          });
+        });
+      });
+
+      describe('given a value equal to the max value', () => {
+        it ('should consider valid', (done) => {
+          var data = { code: 10 };
+
+          Valida.process(data, schema, function(err, ctx) {
+            if (err) return done(err);
+            expect(ctx.isValid()).to.eql(true);
+            done();
+          });
+        });
+      });
+    });
+  });
 });

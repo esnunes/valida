@@ -189,6 +189,7 @@ Valida supports both synchronous and asynchronous validation.
 * `enum`
 * `bool`
 * `float`
+* `range`
 
 #### required
 
@@ -315,6 +316,21 @@ Field must be a float.
 ```js
 var schema = {
   salary: [{ validator: Valida.Validator.float }]
+};
+```
+
+#### range
+
+Field value must be between a min and/or max value.
+
+**options:**
+
+* `min`: The minimum value of the range
+* `max`: The maximum value of the range
+
+```js
+var schema = {
+  code: [{ validator: Valida.Validator.range, min: 0, max: 10 }]
 };
 ```
 
