@@ -190,6 +190,7 @@ Valida supports both synchronous and asynchronous validation.
 * `bool`
 * `float`
 * `range`
+* `custom`
 
 #### required
 
@@ -347,6 +348,22 @@ var schema = {
 Valida.process(data, schema, function(err, ctx) {
   console.log('create', create);
 }, 'create');
+```
+
+#### Custom
+
+Set any function to be used within valida.
+
+**options:**
+
+* `validation`: The validation function to be used
+* `key`: The validation name
+* `msg`: The message you want to show when the validation fails
+
+```js
+var schema = {
+  age: [{ validator: Valida.Validator.custom, validation: (value) => value > 18, key: 'older than 18', msg: 'you must be older than 18' }]
+};
 ```
 
 ### Extensible

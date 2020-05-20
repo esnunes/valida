@@ -567,4 +567,44 @@ describe('validators', function () {
       });
     });
   });
+
+  describe('custom', () => {
+    var schema = {
+      age: [
+        {
+          validator: Valida.Validator.custom,
+          validation: (value) => value > 18,
+          key: 'older than 18',
+          msg: 'you must be older than 18',
+        }
+      ],
+    };
+
+    describe('given a valid validation function', function () {
+      it('should consider valid values', function (done) {
+        var data = { age: 21 };
+
+        Valida.process(data, schema, function(err, ctx) {
+          if (err) return done(err);
+          expect(ctx.isValid()).to.eql(true);
+          done();
+        });
+      });
+
+      it('should return error key and message for invalid values', function (done) {
+        var data = { age: 15 };
+
+        Valida.process(data, schema, function(err, ctx) {
+          if (err) return done(err);
+
+          expect(ctx.isValid()).to.eql(false);
+          const errors = ctx.status.errors.age[0];
+          expect(errors.validator).to.eql('older than 18');
+          expect(errors.msg).to.eql('you must be older than 18');
+
+          done();
+        });
+      });
+    });
+  });
 });
